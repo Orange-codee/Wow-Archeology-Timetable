@@ -1,69 +1,73 @@
 <template>
-  <v-sheet
-    class="mx-auto my-6 py-1"
-    elevation="5"
-    width="80%"
-    rounded
-  >
-    <h1 class="text-center text-brown my-8">
-      <v-icon icon="mdi-calendar-clock" /> WoW 軍團考古學 循環時間表 COM
-    </h1>
+  <v-app>
+    <v-main>
+      <v-sheet
+        class="mx-auto my-6 py-1"
+        elevation="5"
+        width="80%"
+        rounded
+      >
+        <h1 class="text-center text-brown my-8">
+          <v-icon icon="mdi-calendar-clock" /> WoW 軍團考古學 循環時間表 COM
+        </h1>
 
-    <div class="present-event mb-8">
-      <div class="text-center">
-        <span>目前輪次：</span><span class="text-brown-darken-3 text-h6 font-weight-bold">{{
-          newEventArray[0].name
-        }}</span>
-      </div>
-      <div class="text-center">
-        <span>結束時間：</span><span class="text-brown-darken-3 text-h6 font-weight-bold">{{
-          new Date(newEventArray[0].dueDate * 1000).toLocaleDateString()
-        }}</span>
-      </div>
-    </div>
-    <div class="event-timetable px-8 py-4">
-      <v-table :hover="true">
-        <thead>
-          <tr>
-            <th><v-icon icon="mdi-clock-time-five-outline" />起訖時間</th>
-            <th><v-icon icon="mdi-list-box-outline" />名稱</th>
-            <th><v-icon icon="mdi-exclamation-thick" />起始任務</th>
-            <th>
-              <v-icon icon="mdi-trophy-outline" />
-              獎勵說明
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="item in newEventArray"
-            :key="item.startingDate"
-          >
-            <td>
-              {{ new Date(item.startingDate * 1000).toLocaleDateString() }}-{{
-                new Date(item.dueDate * 1000).toLocaleDateString()
-              }}
-            </td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.quest }}</td>
-            <td>{{ item.reward }}</td>
-          </tr>
-        </tbody>
-      </v-table>
-    </div>
-  </v-sheet>
-  <v-btn
-    v-show="model"
-    v-scroll="onScroll"
-    color="brown-darken-2"
-    icon="mdi-arrow-up"
-    class="position-fixed bottom-0 right-0 mb-16 mr-8"
-    @click="goTo(0)"
-  />
+        <div class="present-event mb-8">
+          <div class="text-center">
+            <span>目前輪次：</span><span class="text-brown-darken-3 text-h6 font-weight-bold">{{
+              newEventArray[0].name
+            }}</span>
+          </div>
+          <div class="text-center">
+            <span>結束時間：</span><span class="text-brown-darken-3 text-h6 font-weight-bold">{{
+              new Date(newEventArray[0].dueDate * 1000).toLocaleDateString()
+            }}</span>
+          </div>
+        </div>
+        <div class="event-timetable px-8 py-4">
+          <v-table :hover="true">
+            <thead>
+              <tr>
+                <th><v-icon icon="mdi-clock-time-five-outline" />起訖時間</th>
+                <th><v-icon icon="mdi-list-box-outline" />名稱</th>
+                <th><v-icon icon="mdi-exclamation-thick" />起始任務</th>
+                <th>
+                  <v-icon icon="mdi-trophy-outline" />
+                  獎勵說明
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="item in newEventArray"
+                :key="item.startingDate"
+              >
+                <td>
+                  {{ new Date(item.startingDate * 1000).toLocaleDateString() }}-{{
+                    new Date(item.dueDate * 1000).toLocaleDateString()
+                  }}
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quest }}</td>
+                <td>{{ item.reward }}</td>
+              </tr>
+            </tbody>
+          </v-table>
+        </div>
+      </v-sheet>
+      <v-btn
+        v-show="model"
+        v-scroll="onScroll"
+        color="brown-darken-2"
+        icon="mdi-arrow-up"
+        class="position-fixed bottom-0 right-0 mb-16 mr-8"
+        @click="goTo(0)"
+      />
 
-  <v-footer class="text-center d-flex flex-column bg-brown-lighten-3">
-    <div>© 2025 — <span>Inna Tsai</span></div>
-  </v-footer>
+      <v-footer class="text-center d-flex flex-column bg-brown-lighten-3">
+        <div>© 2025 — <span>Inna Tsai</span></div>
+      </v-footer>
+    </v-main>
+  </v-app>
 </template>
 
 <script setup>

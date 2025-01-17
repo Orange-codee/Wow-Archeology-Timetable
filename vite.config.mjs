@@ -58,4 +58,5 @@ export default defineConfig({
       },
     },
   },
+  base: '/Wow-Archeology-Timetable/',
 })
