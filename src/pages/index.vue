@@ -8,7 +8,7 @@
         rounded
       >
         <h1 class="text-center text-brown my-8">
-          <v-icon icon="mdi-calendar-clock" /> WoW 軍團考古學 循環時間表 COM
+          <v-icon icon="mdi-calendar-clock" /> WoW 軍團考古學 循環時間表
         </h1>
 
         <div class="present-event mb-8">

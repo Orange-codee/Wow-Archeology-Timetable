@@ -1,5 +1,4 @@
 <template>
-  OPT
   <v-sheet
     class="mx-auto my-6 py-1"
     elevation="5"
